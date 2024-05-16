@@ -1,0 +1,864 @@
+html, body {
+  /*height: 99%;
+  width: 99%;*/
+  background-color: white;
+  color: black;
+  margin: 0;
+  /*scroll-behavior: smooth;*/
+}
+
+/* All dark mode */
+.dark-mode {
+  background-color: black !important;
+  color: white !important;
+}
+
+.dark-mode-hr {
+  color: white;
+}
+
+.normal-hr {
+  color: black;
+}
+
+.black-font {
+  color: black;
+}
+
+.white-font {
+  color: white;
+}
+
+.black-background {
+  background-color: black;
+}
+
+.white-background {
+  background-color: white;
+}
+
+.black-botBor {
+  border-bottom-color: black;
+}
+
+.white-botBor {
+  border-bottom-color: white;
+}
+/* End of dark mode css */
+
+/* Navbar container */
+.navBar {
+  top: 0; 
+  left: 0;
+  right: 0;
+  width: 100%;
+  /* This makes sure the navbar is stuck at the top and spans the width of the screen */
+
+  /*display: flex;
+  justify-content: center;
+  align-items: center;*/
+  /* This centers the content both vertically (align-items) and horizontally (justify-content) */
+  
+  /*margin: 0;
+  padding: 0;*/
+  overflow: hidden;
+  /*height: auto;*/
+}
+
+/* Links inside the navbar */
+.navBarLinks{
+  float: left;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 14px 16px;
+  width: 175px;
+}
+
+
+/* The dropdown container */ /* The container <div> - needed to position the dropdown content */
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdown, .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  padding: 14px 16px;
+  font: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+  text-decoration: none;
+  text-align: center;
+  background-color: inherit;
+  width: 175px;
+}
+
+/* Change background color to purple when hovering over navBar links */
+.navBarLinks:hover, .dropdown:hover, .dropdown:hover .dropbtn{
+  background-color: blueviolet;
+  color: white;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content{
+  display: none;
+  position: absolute;
+  background-color: #b1f2ff;
+  min-width: 160px;
+  width: 100%;
+  left: 0;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  margin-top: 14px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a{
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.navBarMenuLinks {
+  float: none;
+  padding: 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  color: black;
+}
+
+.navBarMenuLinks:hover {
+  color: gray;
+}
+
+/* Adds padding to anywhere that needs it so that the content isn't stuck to the edge */
+.page-content {
+  width: 100%;
+  padding: 5px;
+}
+
+/* Divider where the novels are put */
+.novels {
+  width: 100%;
+  padding: 5px;
+}
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .novels {
+  padding-top: 60px;
+}
+
+#stickyNav {
+  z-index: 99;
+}
+
+#stickyNavInside {
+  padding: 10px 10px 0px 10px;
+}
+
+#backgroundOverlay{
+  background-color:transparent;
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  display:block;
+}
+
+/* Search bar CSS*/
+/* The search field */
+#searchInput {
+  font-size: 16px;
+  border: 1px solid #ddd;
+  font-style: inherit;
+}
+
+/* The search field when it gets focus/clicked on */
+#searchInput:focus {
+  outline: 3px solid #ddd;
+}
+
+input[type=text] {
+  border-radius: 4px;
+  width: 130px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+/* When the input field gets focus, change its width to 100% */
+input[type=text]:focus {
+  width: 230px;
+}
+
+/* Positions search content */
+#searchBar {
+  display: inline-block;
+  position: relative;
+}
+
+#searchOptionsID {
+  display: block;
+  position: fixed;
+  min-width: 230px;
+  z-index: 99;
+  background-color: #d7caff;
+  overflow-y: auto;
+  overflow-x: visible;
+  max-height: 700px;
+}
+
+/* Links inside the search bar */
+#searchOptionsID a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: none;
+}
+
+#searchButtonDiv {
+  display: inline-block;
+}
+
+#searchButton {
+  border: none; 
+  outline: none;
+  /*border-radius: 50%;*/
+  /*outline: 1px solid #ddd;*/
+}
+
+.tooltipSearch {
+  display: block;
+  position: relative;
+}
+
+/* Tooltip text */
+.tooltiptextSearch {
+  display: none;
+  width: 620px;
+  background-color: pink;
+  color: black;
+  text-align: center;
+  padding: 5px 0;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 99;
+  /*top: -5px;*/
+  left: 301px;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltipSearch:hover .tooltiptextSearch {
+  display: block;
+}
+
+.tooltipSearch:hover {
+  background-color: pink;
+}
+
+/* The progress container (grey background) */
+.progress-container {
+  width: 100%;
+  height: 3px;
+  margin-top: 3px;
+  /*border-radius: 25px;*/
+  right: 0;
+  left: 0;
+}
+
+/* The progress bar (scroll indicator) */
+.progress-bar {
+  height: 3px;
+  background: #d580ff;
+  width: 0%;
+  /*border-radius: 25px;*/
+  right: 0;
+  left: 0;
+}
+
+#moon {
+  display: inline-block;
+}
+
+#sun {
+  display: none;
+}
+
+.tocLinks {
+  width: 0px;
+  transition: width 1s ease;
+  border-bottom: 2px solid;
+  max-width: max-content;
+  overflow-x: visible;
+  white-space: nowrap;
+}
+
+.tocLinks:hover {
+  width: 500px;
+  max-width: max-content;
+  transition: width 2s ease;
+}
+
+.tagBar {
+  overflow: hidden;
+}
+
+.filterTag {
+  float: left;
+  text-align: center;
+  margin: 2px;
+  padding: 10px 20px;
+  border: 2px solid green;
+  display: none; /* Hidden by default */
+  width: 325px;
+}
+
+/* Style the buttons */
+.tag {
+  border: none;
+  outline: none;
+  margin: 3px;
+  padding: 12px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+/* Add a light grey background on mouse-over */
+.tag:hover {
+  background-color: #ddd;
+}
+
+/* Add a dark background to the active button */
+.tag.activeTag {
+  background-color: #666;
+  color: white;
+}
+
+.no_underline{
+  text-decoration: none;
+}
+
+.show {
+  display:block;
+}
+
+.showIn {
+  display: inline-block;
+}
+
+.activeNav{
+  background-color: #0096ff;
+  color:white;
+}
+
+.activeAcc{
+  background-color: #def3fd;
+  color: black;
+}
+
+.acc-background{
+  background-color: #def3fd;
+}
+
+.tabcontent {
+  text-align: left;
+  /*padding-top: 85px;*/
+}
+
+.tablinks {
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  font-family: inherit;
+}
+
+.tablinksZ {
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  font-family: inherit;
+}
+
+.tablinks:hover, .accordion:hover{
+  background-color: lavender;
+  color: black;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.column2, .column2.resp {
+  width: 50%;
+  padding: 10px;
+  float: left;
+}
+
+.column2.chap {
+  width: 25%;
+  float: left;
+  position: fixed;
+  overflow-x: hidden;
+  height: 100%;
+  padding-bottom: 125px;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+.column2.nov {
+  width: 75%;
+  position: relative;
+  text-align: center;
+  padding-top: 0px;
+  float: right;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.column3, .column3.resp{
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+}
+
+.prevNextDiv{
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 20px;
+}
+
+.column4 {
+  float: left;
+  width: 25%;
+  padding: 10px;
+}
+
+/* Clear floats after the columns */
+.tab:after, .dropRow:after/*, .prevNextDiv:after*/ {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#sideNav{
+  width: 0; /* 0 width - change this with JavaScript */
+  min-width: 0;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  left: 0;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  /*display: none;*/
+}
+
+/* The navigation menu links */
+#sideNav a {
+  display: block;
+  transition: 0.3s;
+}
+
+/* Position and style the close button (top right corner) */
+.closebtn {
+  position: absolute;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  width: 100%;
+  transition: margin-left .5s;
+  left: 0;
+}
+
+ /* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+  display: block;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  background-color: #def3fd;
+}
+
+ /* The card container */
+.card {
+  background-color: transparent;
+  max-width: 300px;
+  height: 300px;
+  /*: 1px solid #f1f1f1;*/
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  margin: auto;
+}
+
+/* This container is used to position the inside */
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card-inner:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
+}
+
+#title {
+  height: 50px;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  overflow: visible;
+  align-content: center;
+}
+
+.tagContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.section {
+  display: inline;
+}
+
+#tagDescription {
+  padding-top: 75px;
+}
+
+.tag {
+  outline: 1px;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+/* Responsive layout - makes the columns stack on top of each other instead of next to each other */
+@media screen and (max-width:900px) {
+  .column2.nov, .column3.resp, .column4 {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media screen and (max-width:900px) {
+  .column2.chap {
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding-bottom: 0px;
+  }
+}
+
+@media screen and (max-width:100px) {
+  .column3 {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* Button that scrolls to the top of the page */
+#topBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: pink; /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  border-radius: 50%; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+}
+
+/* Change background color of scroll-to-top button on hover */
+#topBtn:hover {
+  background-color: #555; /* Add a dark-grey background on hover */
+}
+
+.honorificsButton {
+  border-radius: 50%;
+  border: none; /* Remove borders */
+  font-size: 20px;
+}
+
+.dark-mode-button {
+  border-radius: 50%;
+  /*position: fixed; /* Fixed/sticky position */
+  /*top: 20px; /* Place the button at the bottom of the page */
+  /*right: 30px; /* Place the button 30px from the right */
+  /*z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  /*outline: none; /* Remove outline */
+}
+
+.prev-next-button {
+  text-decoration: none;
+  /*display: inline-block;*/
+  padding: 8px 16px;
+  background-color: #f1f1f1;
+  color: black;
+  border-radius: 50%;
+  border: none;
+  /*justify-content: center;*/
+  text-align: center;
+  vertical-align: baseline;
+  transition: all 0.5s;
+}
+
+.prev-next-button:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+th, td {
+  padding: 10px;
+}
+
+.center-table {
+  margin-left: auto; 
+  margin-right: auto;
+}
+
+/* Chapter titles (center) */
+h1{ 
+  text-align: center;
+  font-size: 35px;
+  font-family: inherit;
+}
+
+/* Chapter titles (left) */
+h2{ 
+  text-align: left;
+  font-size: 30px;
+  font-family: inherit;
+}
+
+/* Dropdown titles */
+h3{ 
+  text-align: left;
+  font-size: 20px;
+  font-family: inherit;
+}
+
+/* Smaller titles (center) */
+h4{ 
+  text-align: center;
+  font-size: 20px;
+  font-family: inherit;
+}
+
+/* Website titles (center) */
+h5{ 
+  text-align: center;
+  font-size: 40px;
+  font-family: inherit;
+}
+
+/* Unused */
+h6{ 
+  font-size: 10px;
+  font-family: inherit;
+}
+
+p{
+  text-align: left;
+  font-size: 16px;
+  font-family: inherit;
+}
+
+pre{
+  text-align: left;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+  font-family: inherit;
+  font-size: 16px;
+}
+
+.para {
+  text-align: left;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.left {
+  text-align: left;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+.hidden{
+  visibility: hidden;
+}
+
+.font40 {
+  font-size: 40px;
+}
+
+.font30 {
+  font-size: 30px;
+}
+
+.font25 {
+  font-size: 25px;
+}
+
+.font20 {
+  font-size: 20px;
+}
+
+.width100 {
+  width: 100%;
+}
+
+.padding1 {
+  padding: 1px;
+}
+
+.fontComic {
+  font-family: Comic Sans MS, Chalkboard SE, "Comic Neue", Georgia, Ubuntu, Spectral, "Noto Sans", Verdana, "Open Sans", cursive;
+  /*font-family: 'Comic Neue', cursive;*/
+}
+
+.fontTimes {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.arrow1::before{
+  content: "<";
+}
+
+.arrow1::after {
+  content: ">";
+}
+
+.arrow2::before{
+  content: "<<";
+}
+
+.arrow2::after {
+  content: ">>";
+}
+
+.arrowDouble::before{
+  content: "«";
+}
+
+.arrowDouble::after {
+  content: "»";
+}
+
+.secret {
+  cursor: default;
+  visibility: hidden;
+}
+
+.prevent-select {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+::-moz-selection { /* Code for Firefox */
+  color: white;
+  background: #007bff;
+}
+
+::selection {
+  color: white;
+  background: #ca80e9;
+}
+
+/* Custom Scrollbar*/
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: blue; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #744af2; 
+}
+/* End of Scrollbar */
+
+/* Potential Colors */
+/*
+body {
+  color: #007bff;
+}
+*/
